@@ -1,0 +1,138 @@
+{%extends 'parts/base.html'%}
+{%load static%}
+
+{%block content%}
+
+<div class="content-wrapper">
+    <div class="page-title">
+        <div class="row">
+            <div class="col-sm-6">
+                <h4 class="mb-0"> Statistic</h4>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right">
+                    <li class="breadcrumb-item"><a href="index.html" class="default-color">Home</a></li>
+                    <li class="breadcrumb-item active">Statistic</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <!-- widgets -->
+    <div class="row">
+
+        <div class="col-xl-6 mb-30">
+            <div class="card card-statistics h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Statistic Student Per Class</h5>
+                    <div class="accordion plus-icon shadow">
+                        <div class="acd-group">
+                            <a href="#" class="acd-heading">Statistic Student Per Class</a>
+                            <div class="acd-des">
+                                <div class="table-responsive">
+                                    <table class="mb-0 table table-bordered table-3 text-center table-striped" id="table_id_1">
+                                        <thead>
+                                        <tr>
+                                            <th>class</th>
+                                            <th>count_of_student</th>
+
+
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+
+
+                                        {%for i ,y in class_studentlist %}
+
+                                        <tr>
+
+                                            <td>{{i}}</td>
+                                            <td>{{y}}</td>
+
+                                        </tr>
+                                        {%endfor%}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="col-xl-6 mb-30">
+            <div class="card card-statistics h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Statistic Student Per Country</h5>
+                    <div class="accordion plus-icon shadow">
+                        <div class="acd-group">
+                            <a href="#" class="acd-heading">Statistic Student Per Country</a>
+                            <div class="acd-des">
+                                <div class="table-responsive">
+                                    <table class="mb-0 table table-bordered table-3 text-center table-striped" id="table_id">
+                                        <thead>
+                                        <tr>
+                                            <th>country</th>
+                                            <th>count_of_student</th>
+
+
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        {%for x ,z in country_studentlist %}
+
+                                        <tr>
+
+                                            <td>{{x}}</td>
+                                            <td>{{z}}</td>
+
+                                        </tr>
+                                        {%endfor%}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<div class="col-xl-12 mb-30">
+            <div class="card card-statistics h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Average Student Age</h5>
+                    <div class="accordion plus-icon shadow">
+                        <div class="acd-group">
+                            <a href="#" class="acd-heading">Average Student Age</a>
+                            <div class="acd-des">
+                                <div>{{average_age}}</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- Orders Status widgets-->
+    {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+

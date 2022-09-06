@@ -1,0 +1,84 @@
+{%extends 'parts/base.html'%}
+{%load static%}
+{% load crispy_forms_tags %}
+{%block content%}
+
+<div class="content-wrapper">
+    <div class="page-title">
+
+
+        <div class="row">
+            <div class="col-sm-6">
+                <h4 class="mb-0"> Classes</h4>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right">
+                    <li class="breadcrumb-item"><a href="index.html" class="default-color">Home</a></li>
+                    <li class="breadcrumb-item active">Classes</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <!-- widgets -->
+    <div class="row">
+        <div class="col-xl-12 mb-30">
+            <div class="card card-statistics h-100">
+                {% for msg in messages%}
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>Hey!</strong> {{msg}}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                {%endfor%}
+                <div class="card-body">
+                    <a class="btn btn-primary mb-3" href="{%url 'add_class'%}">Add Class</a>
+
+                    <div class="table-responsive">
+                        <table class="mb-0 table table-bordered table-3 text-center table-striped" id="table_id">
+                            <thead>
+                            <tr>
+                                <th>name</th>
+                                <th>created_at</th>
+                                <th>process</th>
+
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            {%for class in classes%}
+
+                            <tr>
+                                <td>{{class.class_name}}</td>
+                                <td>{{class.created_at}}</td>
+                                <td>
+                                    <a class="button small" href="{% url 'update_class' class.id %}">edit</a>
+                                    <a class="button small" href="{% url 'delete_class' class.id %}">delete</a>
+                                </td>
+
+                            </tr>
+                            {%endfor%}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- Orders Status widgets-->
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
